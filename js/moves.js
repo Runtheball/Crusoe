@@ -5,8 +5,7 @@ var activity = "exploring";
 
 function moveLeft() {
   xcoord = xcoord - 15;
-  $("#playerIcon").css("left", xcoord);
-  $("#playerIcon").css("top", ycoord);
+  $("#playerIcon").css({"left": xcoord, "top": ycoord});
   $("#output-span").html("Your coordinates are: <br />" + ycoord + "S, " + xcoord +"W");
   activity = "exploring";
   newTurn();  //this doesn't happen. Not defined. Maybe updateStatus should run here, and that would then call newTurn()?  

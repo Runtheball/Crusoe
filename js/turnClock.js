@@ -19,29 +19,42 @@
 var timeOfDay = ['dawn', 'morning', 'late morning', 'early afternoon', 'late afternoon', 'sunset', 'night'],
 	currentTime = 0;
 	
-var	newDay = function(){ //start a new day
+function newDay(){ //start a new day
 		currentTime = 0;
 	}
+	
+var messages = Array();
+messages[messages.length] = "Please click one of the action buttons now.";
+messages[messages.length] = "It is " + timeOfDay[currentTime] + ", but your light source allows you to take one more action.";
+messages[messages.length] = "It is now dark. Taking action now, without a light source, would put you at great risk of injury. No matter how desperate you may feel, it\'s time to sleep.";
+messages[messages.length] = "It is " + timeOfDay[currentTime] + ".";
 
-var newTurn = function(){ // start a new turn -- does this need to be a var?
+		
+
+function newTurn(){ // start a new turn
 		
 		// get timeOfDay and output to browser
 		
 			if (currentTime < 6){
-				$("#turnClock").html("It is " + timeOfDay[currentTime]) + ".";
-				$("#output-span").html("Please click one of the action buttons now.");
+				$("#turnClock").html(msg(3));
+				$("#output-span").html(msg(0));
 				currentTime ++;
 			}
 			else if (currentTime == 6 && lightSource == 1){
-				$("#turnClock").html("It is " + timeOfDay[currentTime]) + ", but your light source allows you to take one more action.";
-				$("#output-span").html("Please click one of the action buttons now.");
+				$("#turnClock").html(msg(3));
+				$("#output-span").html(msg(1));
 				currentTime ++;
 			}
 			else {
-				$("#turnClock").html("It is now dark. Taking action now, without a light source, would put you at great risk of injury. No matter how desperate you may feel, it's time to sleep.");			
+				$("#turnClock").html(msg(2));			
 				currentTime ++
-				$("#output-span").html(<button class="sleep" onclick="newDay();" width="160" height="25" alt="click to sleep for the night" />Sleep</button>);
-				//$("#output-span").html("If you <em>dare</em> take another action in the dark, go to the action menu below.");
+				$("#output-span").html('<button class="sleep" onclick="newDay();" width="160" height="25" alt="click to sleep for the night" />Sleep</button>');
+				//$("#output-span").html('If you <em>dare</em> take another action in the dark, go to the action menu below.');
 			}
-		
+					$("#output-span").html(msg(3));
 };
+
+function msg(i){
+	return messages[i];
+	}
+
