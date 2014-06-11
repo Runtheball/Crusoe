@@ -1,0 +1,85 @@
+ToDO: Use horse-race.rb to add a similar game engine to Crusoe. 
+
+
+
+
+
+
+possible game engine:
+    update_time()  ------> which will have an update day function as well
+    calc_activity() -------> moving, crafting, hunting, etc
+    update_map()
+    update_health()
+
+
+
+
+
+Questions:
+Run game - move until night. "Night" never gets output...game goes from sunset to dawn because newTurn() fires too quickly. How to avoid that?  I have a sleep button appearing at dusk with no light source, or night with lightsource, but I need to stop newDay() until that button is clicked. (I may have figured this out...just need to get the sleep button working and I need to set all move and activity buttons to only work if timeOfDay != night  (sleep button excepted))
+
+in inv-objects.js  lines 65 & 76 : Did I do this right? Am I modifying the variables globally?
+
+For inventory objects, use a list (see my Python course notes). Lists are perfect for inventory control.
+
+
+
+
+
+
+
+
+
+
+
+
+The main loop:  it can wait for user input, or it can repeatedly update. Waiting for user input works well for card games and puzzle games, but not for action games. Would it work for Crusoe?
+
+Here's a very basic game loop. Better read 
+http://journal.stuffwithstuff.com/2008/11/17/using-an-iterator-as-a-game-loop/
+before trying to actually use it in a game.
+
+void GameLoop()
+{
+    while (mPlaying)
+    {
+        HandleUserInput();
+        UpdateGameState();
+        Render();
+    }
+}
+
+
+or try something along the lines of…
+
+while app_still_running:
+    check queue of pending events
+    while the next pending event is due now:
+        execute event
+    sleep(some reasonable duration)
+
+
+
+JavaScript destroys ALL variables when the browser closes or the page reloads.
+Cookies are the way to ensure data persistence. 
+Cookies are very likely the right method of data storage for StarTrek, and Crusoe.
+
+
+
+The game will have the following components:
+a map, initially black except for the area occupied by player icon and surrounding areas.
+map will refresh only when a new area is explored. Refreshed map will show terrain of all adjacent/visible map tiles, and some resource icons w/in the tiles. use something like map.reload(). Each map tile (and each resource within each map tile) will have a state of either visible or invisible.
+a health meter
+an energy meter
+a timer/clock
+an inventory (always visible)
+a menu of allowable actions
+a compass
+
+
+
+Have hunger level increase with a javascript timer. But variables should influence the delay used by the timer. Exertion should lower the delay, various food types should increase the delay.
+
+Have day/night set with a js interval timer. Turn day background into night bg after 1 hour real time.
+setInterval("document.getElementById('pageBackgroundIMG').src = 'night.png';", 3600000);
+...but this only sets bg img to 'night' every hour. What sets it to 'day'? Maybe this isn't going to be a background image. Maybe it should be a visibility setting that decreases for 1 hour, then increases for one hour? 

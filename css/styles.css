@@ -1,3 +1,17 @@
+#mask{
+position:absolute; /* important */
+top:0px; /* start from top */
+left:0px; /* start from left */
+height:100%; /* cover the whole page */
+width:100%;  /* cover the whole page */
+background-color:#000;
+opacity: 1;
+}
+
+#mask .fading{
+opacity: 0;
+}
+
 #playerIcon {
   position: absolute;
   background-image: url(../images/hiker_icon.gif) no-repeat;
@@ -10,10 +24,9 @@
 }
 
 #background{
-	background-image: url(images/"bg_lagoon.jpg") no-repeat;
+	background: url(../images/bg_lagoon.jpg) no-repeat;
 	width:800px;
 	margin:0 auto;
-	
 }
 
 #playarea{
@@ -32,15 +45,33 @@
 	left:0;
 }
 
-#status{
-	width:200px;
-	height: 525px;
+#aside{
+	width:160px;
+	padding:20px;
+	height: 485px;
 	position:absolute;
 	left:600px;
 	top:0;
-	background-color: aqua;
+	background:url(../images/bg_aside.jpg) no-repeat;
 	color:black;
 	text-align: center;
+}
+
+#aside .transpBox{
+	width:160px;
+	height:485px;
+	background-color:#ffffff;
+	border:1px solid black;
+	opacity:0.75;
+	filter:alpha(opacity=60); /* For IE8 and earlier */
+}
+
+#aside .transbox p
+  {
+  position:relative;
+  margin:20px;
+  font-weight:bold;
+  color:#000000;
 }
 
 #controlBar{
@@ -49,23 +80,22 @@
 	position: absolute;
 	left:0;
 	top:525px;
-	background-color: yellow;
+	background:url(../images/bg_driftwood.jpg) no-repeat;
+}
+
+#inv{
+	position:absolute;
+	left:50px;
+	top:34px;
 }
 	
-
-/*#directions{
-	position:relative;
-	width:250px;
-	height: 75px;
-}*/
-
-#west{
+#btn_west{
 	position:absolute;
 	left:224px;
 	top:33px;
 }
 
-#north{
+#btn_north{
 	position:absolute;
 	left:276px;
 	top:4px;
@@ -77,17 +107,23 @@
 	top:40px;
 }
 
-#east{
+#btn_east{
 	position:absolute;
 	left:330px;
 	top:33px;
 }
 
-#south{
+#btn_south{
 	position:absolute;
 	left:275px;
 	top:62px;
 }
+
+/* #btn_forceSleep{  // Probably don't need this. just use one sleep btn
+	position:absolute;
+	left:50%;
+	top: 50%;
+} */
 
 #actions{
 	width:200px;
@@ -99,7 +135,7 @@
 	/*maybe add a bamboo frame border or background image?  Or add that to the entire footer?*/
 }
 
-button{
+#controlBar a{
   font-family: Arial;
   color: #ffffff;
   font-size: 12px;
@@ -115,7 +151,8 @@ button{
   background: -moz-linear-gradient(top, #8afa3f, #308002);
   -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#8afa3f, endColorStr=#308002);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#8afa3f, endColorStr=#308002);
-  display:inline-block; /* IE is so silly */
+  display:inline-block; /* IE */
+  cursor:pointer;
 }
 .button:hover {
   background: #69c229;
@@ -131,11 +168,16 @@ button{
 }
 
 #output-span, #mapLocale, #turnClock{
+	position:relative;
 	margin:10px 0;
 	padding:5px 0;
 	border-bottom:2px;
 	border-bottom-style: solid;
 	border-bottom-color: black;
+}
+
+#timeOfDay{
+	font-weight:bold;
 }
 
 #footer{
