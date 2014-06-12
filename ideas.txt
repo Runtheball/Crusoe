@@ -1,15 +1,19 @@
 ToDO: Use horse-race.rb to add a similar game engine to Crusoe. 
-
-
+    wrapper element should have a parchment png background
 
 
 
 
 possible game engine:
+class Game
     update_time()  ------> which will have an update day function as well
     calc_activity() -------> moving, crafting, hunting, etc
-    update_map()
-    update_health()
+    update_map()  --------> needs to happen each turn, in case player is exploring
+    update_health() --------> needs to happen each turn
+
+    at end of file, run_game(), or 
+end
+Game.new
 
 
 
@@ -29,11 +33,9 @@ For inventory objects, use a list (see my Python course notes). Lists are perfec
 
 
 
-
-
-
-
 The main loop:  it can wait for user input, or it can repeatedly update. Waiting for user input works well for card games and puzzle games, but not for action games. Would it work for Crusoe?
+
+how about $(.btn)on(click)   ----> advance turn
 
 Here's a very basic game loop. Better read 
 http://journal.stuffwithstuff.com/2008/11/17/using-an-iterator-as-a-game-loop/

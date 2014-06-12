@@ -1,11 +1,30 @@
-#mask{
-position:absolute; /* important */
-top:0px; /* start from top */
-left:0px; /* start from left */
-height:100%; /* cover the whole page */
-width:100%;  /* cover the whole page */
-background-color:#000;
-opacity: 1;
+body {
+  background: url(../images/bg-body.jpg) no-repeat;
+  min-height: 100%;
+}
+
+#wrapper{ 
+  background-color: rgba(205, 170, 130, 0.8);
+  background: rgba(205, 170, 130, 0.8);
+  color: #000;
+  width:900px;
+  padding:30px;
+  margin:0 auto;
+}
+/* prefer parchment background for text/interface, an old map bg for map. 2 divs */
+#background.status{
+  width:280px;
+  padding:40px;
+  /*background: url(../images/bg-paper.png) no-repeat;*/
+  margin:0 auto;
+}
+/* background.map replaces #playarea and maybe #map too */
+#background.map {  
+  background-color: black;
+  width:600px;
+  height: 625px;
+  margin: 0;
+  position: relative;
 }
 
 #mask .fading{
@@ -23,17 +42,13 @@ opacity: 0;
   height: 20px;
 }
 
-#background{
-	background: url(../images/bg_lagoon.jpg) no-repeat;
-	width:800px;
-	margin:0 auto;
-}
+
 
 #playarea{
 	background-color: black;
 	width:800px;
 	height: 625px;
-	margin: 0;
+	margin: 0 auto;
 	position: relative;
 }
 

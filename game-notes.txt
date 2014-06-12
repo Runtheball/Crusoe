@@ -24,7 +24,7 @@ Divide each day into turns. Each turn is two hours. 12 hours of daylight = 6 tur
 
 Each turn, player can take one action (explore, craft, rest, ...). After that action, we need to advance the timeOfDay. 
 
-What if player sleeps during the day? Don't make the 'sleep' function advance the day, only the turn.
+What if player sleeps during the day? Don't make the 'sleep' function advance the day, only the turn. Make this a 'nap' function for one turn which restores x energy.
 
 
 
